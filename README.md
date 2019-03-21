@@ -49,7 +49,7 @@ required, and the number and order of grid-items does not matter.
 
 ```jsx harmony
 <FluidGrid container spacing="20px">
-    <FluidGrid item minWidth="320px%">
+    <FluidGrid item minWidth="320px">
         <CustomCardOne />
     </FluidGrid>
 
@@ -88,16 +88,12 @@ component. This example shows both structures.
 
 ```jsx harmony
 <FluidGrid container>
-
-    // Grid Item using a DIV element
     <FluidGrid item minWidth="33%">
-        // Item content - a Typography component
         <Typography variant="subheading">
             Text Content
         </Typography>
     </FluidGrid>
 
-    // Grid Item using a Typography component
     <FluidGrid item minWidth="33%" component="Typogarphy" variant="subheading">
         Text Content
     </FluidGrid>
