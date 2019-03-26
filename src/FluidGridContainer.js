@@ -58,6 +58,7 @@ class FluidGridContainer extends React.Component {
 			'flexBasis',
 			'minWidth',
 			'maxWidth',
+			'containerOverflow',
 			'style'
 		])
 		const Component = props.component

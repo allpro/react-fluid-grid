@@ -22,7 +22,8 @@ const getStyles = props => {
 		flexGrow,
 		flexShrink,
 		flexBasis,
-		maxWidth
+		maxWidth,
+		containerOverflow,
 	} = props
 	let { minWidth } = props
 
@@ -36,17 +37,22 @@ const getStyles = props => {
 		minWidth = `calc(${minWidth} + ${columnSpacing}px)`
 	}
 
-	// If content has a 'shadow', the grid container must be ENLARGED to show
-	// it because overflow is hidden so that external 'dividers' don't show.
-	const containerOverflow = props.containerOverflow || '0'
-
 	const outerContainer = {
 		boxSizing: 'border-box',
 		position: 'relative',
 		display: 'block',
 		overflow: 'hidden',
-		padding: `0 ${containerOverflow} ${containerOverflow}`,
-		margin: `0 -${containerOverflow}`
+		padding: 0
+	}
+
+	// If content has a 'shadow', the grid container must be ENLARGED to show
+	// it because overflow is hidden so that external 'dividers' don't show.
+	if (containerOverflow) {
+		Object.assign(outerContainer, {
+			padding: containerOverflow,
+			marginLeft: `-${containerOverflow}`,
+			marginRight: `-${containerOverflow}`,
+		})
 	}
 
 	const innerContainer = {

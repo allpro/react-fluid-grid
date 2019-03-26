@@ -133,7 +133,8 @@ the same as the props passed in!
 
 ## Example of a Responsive FluidGrid
 
-Resize window width to see flow change.
+See Example.js. You can copy this file into your project, or run the demo 
+server (`npm start`) to access it at (http://localhost:3000/)[http://localhost:3000/]
 
 ```jsx harmony
 import React from 'react'
@@ -168,9 +169,9 @@ const itemProps = {
 }
 
 const contentProps = {
-	flex: 'auto', // so inner-element will stretch vertically
 	variant: 'subheading',
 	style: {
+        flex: 'auto', // so inner-element will stretch vertically
 		border: '1px solid #CCC', 
         background: '#F9F9F9', 
         padding: '20px'
