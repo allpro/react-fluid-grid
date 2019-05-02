@@ -1,8 +1,13 @@
 # React FluidGrid Component
 
-[TOC]
+[![npm package][npm-badge]][npm]
+[![gzip-size][gzip-size-badge]][gzip-size]
+[![install-size][install-size-badge]][install-size]
+[![build][build-badge]][build]
+[![coverage][coveralls-badge]][coveralls]
+[![license][license-badge]][license]
+[![donate][donate-badge]][donate]
 
-## Overview
 
 This component simplifies creating a "responsive grid" in React. Grid 
 configuration is specified as props on the grid-wrapper, and individual 
@@ -16,36 +21,37 @@ write ordinary CSS to create the same result. However, there are numerous
 calculations necessary to achieve a perfect result, so this component is a 
 major time-saver and bug-avoider!
 
-## Why Use FluidGrid?
+**Motivation**
 
 FluidGrid was inspired by 
-**[Material-UI Grid](https://material-ui.com/layout/grid/)** ("**MUI Grid**"), 
-and uses option syntax as similar as possible. However the sizing methodology
-is completely different, so there are only a few options in common. 
-FluidGrid was created to handle usecases that MUI Grid could not.
-
-Like most grid systems, the MUI Grid item-widths are based on _spanning_ the 
-imaginary columns of a fixed grid. The number of columns spanned by each cell
-can be changed based on media-query breakpoints. Therefore the width of each 
-cell changes based on screen width, **as well as other elements like sidebars**. 
-If these other elements are also responsive to screen-width, the sizing logic
-of the grid becomes dependent on them, making it complex and brittle.
- 
-**FluidGrid does NOT rely on an imaginary grid with imaginary column.** Instead it
- uses flexbox-wrapping to position elements. The result _emulates a grid_, 
- while allowing ordinary measurements for min-width, max-width, flex-basis, etc. 
- ANY valid CSS measurements can be used, like `300px`, `20em`, `25%`, etc.
-
-Because FluidGrid is based on cell-content width instead of screen-width, it 
-cares only about the width of the grid container. If you expand or collapse a 
-sidebar, the grid will _immediately_ reflow to suit the resized container. No 
-media queries, special state-classes, or re-rendering is needed - its automatic.
+**[Material-UI Grid](https://material-ui.com/layout/grid/)** ("**MUI Grid**")
+FluidGrid was created to handle use-cases that MUI Grid does not.
 
 I created this helper for a layout with 'cards' that had a minimum width. 
 It was a highly responsive UI, with various factors affecting the grid/content 
 width at each media breakpoint. With FluidGrid, this became dead simple. Note 
 that the example below is COMPLETE - no additional CSS or media-queries are
 required, and the number and order of grid-items does not matter.
+
+## How is FluidGrid different?
+
+Like most grid systems, MUI Grid item-widths are based on _spanning_ the 
+imaginary columns of a fixed grid. The number of columns spanned by each cell
+can be changed based on media-query breakpoints. The actual width of each 
+cell changes based on screen width, **as well as elements like sidebars**. 
+If these other elements are also responsive to screen-width, the sizing logic
+of the grid becomes dependent on them, making it complex and brittle.
+
+**FluidGrid does NOT rely on an imaginary grid with imaginary column.** 
+Instead it uses flexbox-wrapping to position elements. 
+The result _emulates a grid_, 
+but allows ordinary measurements for min-width, max-width, flex-basis, etc. 
+ANY valid CSS measurements can be used, like `300px`, `20em`, `25%`, etc.
+
+Because FluidGrid is based on cell-content width instead of screen-width, it 
+cares only about the width of the grid container. If you expand or collapse a 
+sidebar, the grid will _immediately_ reflow to suit the resized container. 
+No media queries, special state-classes, or re-rendering is necessary.
 
 ```jsx harmony
 <FluidGrid container spacing="20px">
@@ -218,6 +224,87 @@ const contentProps = {
 </FluidGrid>
 ```
 
+**Advantages of FluidGrid**
+
+- Useful for anything async; not just 'prompt messages'.
+- _Very easy_ to add asynchronous navigation blocking.
+- Fully customizable by each component - _no limitations_.
+- Does not require modifying the history object.
+- Is compatible with React Native and server-side-rendering.
+
+
+## Live Example
+
+Try the demo at: https://allpro.github.io/react-fluid-grid
+
+Play with the demo code at:
+https://codesandbox.io/s/github/allpro/react-fluid-grid/tree/master/example
+
+If you pull or fork the repo, you can run the demo like this:
+- In the root folder, run `npm start`
+- In a second terminal, in the `/example` folder, run `npm start`
+- The demo will start at http://localhost:3000
+- Changes to the component _or_ the demo will auto-update the browser
+
+
+## Installation
+
+-   NPM: `npm install @allpro/react-fluid-grid`
+-   Yarn: `yarn add @allpro/react-fluid-grid`
+-   CDN: Exposed global is `FormManager`
+    -   Unpkg: `<script src="https://unpkg.com/@allpro/react-fluid-grid/umd/@allpro/react-fluid-grid.min.js"></script>`
+    -   JSDelivr: `<script src="https://cdn.jsdelivr.net/npm/@allpro/react-fluid-grid/umd/@allpro/react-fluid-grid.min.js"></script>`
+
+---
+
 ## FluidGrid API
 
 **Coming Soon...**
+
+
+## Built With
+
+- [create-react-library](https://github.com/DimiMikadze/create-react-library) - 
+A React component framework based on
+[create-react-app](https://github.com/facebook/create-react-app)
+
+## Contributing
+
+Please read 
+[CONTRIBUTING.md](https://github.com/allpro/react-fluid-grid/blob/master/CONTRIBUTING.md)
+for details on our code of conduct, 
+and the process for submitting pull requests to us.
+
+## Versioning
+
+We use SemVer for versioning. For the versions available, 
+see the tags on this repository.
+
+## License
+
+MIT © [allpro](https://github.com/allpro)
+<br>See
+[LICENSE](https://github.com/allpro/react-fluid-grid/blob/master/LICENSE)
+file for details
+
+
+[gzip-size-badge]: http://img.badgesize.io/https://cdn.jsdelivr.net/npm/@allpro/react-fluid-grid/umd/@allpro/react-fluid-grid.min.js?compression=gzip
+[gzip-size]: http://img.badgesize.io/https://cdn.jsdelivr.net/npm/@allpro/react-fluid-grid/umd/@allpro/react-fluid-grid.min.js
+
+[install-size-badge]: https://packagephobia.now.sh/badge?p=@allpro/react-fluid-grid
+[install-size]: https://packagephobia.now.sh/result?p=@allpro/react-fluid-grid
+
+[npm-badge]: http://img.shields.io/npm/v/@allpro/react-fluid-grid.svg?style=flat-round
+[npm]: https://www.npmjs.com/package/@allpro/react-fluid-grid
+
+[build-badge]: https://travis-ci.org/allpro/react-fluid-grid.svg?branch=master
+[build]: https://travis-ci.org/allpro/react-fluid-grid
+
+[coveralls-badge]: https://coveralls.io/repos/github/allpro/react-fluid-grid/badge.svg?branch=master
+[coveralls]: https://coveralls.io/github/allpro/react-fluid-grid?branch=master
+
+[license-badge]: https://badgen.now.sh/badge/license/MIT/blue
+[license]: https://github.com/allpro/react-fluid-grid/blob/master/LICENSE
+
+[donate-badge]: https://img.shields.io/badge/Donate-PayPal-green.svg?style=flat-round
+[donate]: https://paypal.me/KevinDalman
