@@ -1,7 +1,7 @@
 import React, { Fragment } from 'react'
 import Typography from '@material-ui/core/Typography'
 
-import FluidGrid from '../../src/'
+import FluidGrid from '@allpro/react-fluid-grid'
 import ExampleHeader from './ExampleHeader'
 
 
@@ -51,7 +51,7 @@ const cosmeticContainerStyle = {
 
 // Typography content inside each grid-item - COSMETIC ONLY
 const cosmeticContentProps = {
-	variant: 'subheading',
+	variant: 'subtitle1',
 	style: {
 		flex: 'auto', // so inner-element will stretch vertically
 		// SEE containerOverflow option in gridConfig to prevent shadow clipping
@@ -74,7 +74,11 @@ function ReactFluidGridExample() {
 				`}
 			/>
 
-			<FluidGrid container {...gridConfig} style={cosmeticContainerStyle}>
+			<FluidGrid
+				container
+				style={cosmeticContainerStyle}
+				{...gridConfig}
+			>
 				{createArray(NUM_DEMO_ITEMS).map((x, idx) => (
 					<FluidGrid {...itemProps} key={idx}>
 						<Typography {...cosmeticContentProps}>

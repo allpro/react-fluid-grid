@@ -1,6 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import _ from 'lodash'
+import merge from 'lodash/merge'
+import omit from 'lodash/omit'
 
 import getStyles from './getStyles'
 
@@ -42,7 +43,7 @@ class FluidGridContainer extends React.Component {
 
 	render() {
 		const { props } = this
-		const containerProps = _.omit(props, [
+		const containerProps = omit(props, [
 			'container',
 			'component',
 			'alignContent',
@@ -64,7 +65,7 @@ class FluidGridContainer extends React.Component {
 		const Component = props.component
 		const styles = getStyles(props)
 		// If a style prop was passed, merge it into container
-		const containerStyles = _.merge({}, props.style, styles.outerContainer)
+		const containerStyles = merge({}, props.style, styles.outerContainer)
 
 		return (
 			<Component style={containerStyles} {...containerProps}>

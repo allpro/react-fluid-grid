@@ -1,11 +1,12 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import _ from 'lodash'
+import merge from 'lodash/merge'
+import omit from 'lodash/omit'
 
 import getStyles from './getStyles'
 
 const FluidGridItem = (props, context) => {
-	const itemProps = _.omit(props, [
+	const itemProps = omit(props, [
 		'item',
 		'component',
 		'columnDivider',
@@ -18,10 +19,10 @@ const FluidGridItem = (props, context) => {
 		'style'
 	])
 	const Component = props.component
-	const config = _.merge({}, context.config, props)
+	const config = merge({}, context.config, props)
 	const styles = getStyles(config)
-	// If a style prop was passed, merge it into container
-	const itemStyles = _.merge({}, styles.item, props.style)
+	// If a style prop was passed, merge it into item - allow style override!
+	const itemStyles = merge({}, styles.item, props.style)
 
 	return (
 		<Component style={itemStyles} {...itemProps}>
