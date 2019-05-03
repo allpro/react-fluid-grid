@@ -74,6 +74,7 @@
   "scripts": {
     "test": "cross-env CI=1 react-scripts test --env=jsdom",
     "test:watch": "react-scripts test --env=jsdom",
+    "test:coverage": "react-scripts test --env=jsdom --coverage",
     "build": "rollup -c",
     "start": "rollup -c -w",
     "prepare": "npm run build",
