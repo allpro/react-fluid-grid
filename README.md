@@ -30,14 +30,14 @@ Since MUI Grid can react _only_ to the full screen-width,
 it could not handle this complex layout automatically.
 
 We tried to make it work by adding our own logic, 
-but all the variables made it very complicated
+but all the variables made it very complicated.
 It was also brittle because any changes to other elements could
-break the grid column=span logic.
+break the grid _column-span_ logic.
 
 The problem with _all_ "grids" is that they rely on 
 **spanning columns of a virtual grid**. 
 This means that the column-span values must be changed in order to reflow the
-grid items. This means the developer is reponsible for figuring out the math
+grid items. This means the developer is responsible for figuring out the math
 required to make things work.
 
 ## How is FluidGrid different?
@@ -75,20 +75,6 @@ No media queries, special state-classes, or re-rendering is necessary.
 
 Adding item spacing and divider rules is as simple as adding props;
 for example:
-```javascript
-<FluidGrid 
-    container
-    spacing="16px" 
->
-    <FluidGrid item minWidth="320px">
-        <CustomCardOne />
-    </FluidGrid>
-    ...
-</FluidGrid>
-```
-
-### Example
-
 ```jsx harmony
 <FluidGrid 
     container 
@@ -120,7 +106,7 @@ horizontally, but with no space at the top or sides of the grid. As many cards
 _fill_ the grid-row. The options shown could be enhanced to make the sizing 
 more refined.
 
-## Grid Stucture
+## Grid Structure
 
 A FluidGrid consists of an outer wrapper (Container), with any number 
 of grid-cells (Items). The content of each grid-cell is wrapped by an Item 
@@ -140,7 +126,7 @@ component. This example shows both structures.
         </Typography>
     </FluidGrid>
 
-    <FluidGrid item minWidth="33%" component="Typogarphy" variant="subheading">
+    <FluidGrid item minWidth="33%" component="Typography" variant="subheading">
         Text Content
     </FluidGrid>
     
@@ -487,8 +473,8 @@ MIT © [allpro](https://github.com/allpro)
 file for details
 
 
-[gzip-size-badge]: http://img.badgesize.io/https://cdn.jsdelivr.net/npm/@allpro/react-fluid-grid/umd/@allpro/react-fluid-grid.min.js?compression=gzip
-[gzip-size]: http://img.badgesize.io/https://cdn.jsdelivr.net/npm/@allpro/react-fluid-grid/umd/@allpro/react-fluid-grid.min.js
+[gzip-size-badge]: http://img.badgesize.io/https://cdn.jsdelivr.net/npm/@allpro/react-fluid-grid/umd/react-fluid-grid.min.js?compression=gzip
+[gzip-size]: http://img.badgesize.io/https://cdn.jsdelivr.net/npm/@allpro/react-fluid-grid/umd/react-fluid-grid.min.js
 
 [install-size-badge]: https://packagephobia.now.sh/badge?p=@allpro/react-fluid-grid
 [install-size]: https://packagephobia.now.sh/result?p=@allpro/react-fluid-grid
