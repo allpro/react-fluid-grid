@@ -2,6 +2,7 @@ import React, { Fragment } from 'react'
 import Typography from '@material-ui/core/Typography'
 
 import FluidGrid from '@allpro/react-fluid-grid'
+
 import ExampleHeader from './ExampleHeader'
 
 
@@ -82,11 +83,10 @@ function ReactFluidGridExample() {
 				{createArray(NUM_DEMO_ITEMS).map((x, idx) => (
 					<FluidGrid {...itemProps} key={idx}>
 						<Typography {...cosmeticContentProps}>
-							{MIN_ITEM_WIDTH}/{MIN_ITEM_PERCENT} minWidth
+							{`flexBasis=${MIN_ITEM_WIDTH} minWidth=${MIN_ITEM_PERCENT}`}
 						</Typography>
 					</FluidGrid>
 				))}
-
 
 				{createArray(MAX_COLUMNS - 1).map((x, idx) => (
 					<FluidGrid {...itemPlaceholderProps} key={`ph${idx}`} />

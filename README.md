@@ -9,52 +9,92 @@
 [![donate][donate-badge]][donate]
 
 
-This component simplifies creating a "responsive grid" in React. Grid 
-configuration is specified as props on the grid-wrapper, and individual 
-grid-cell options are props on each cell-wrapper. Each grid-cell is 
-constrained by minWidth and/or maxWidth options. All the required CSS is
-auto-generated to achieve the desired effect.
- 
-**FluidGrid uses static CSS.** Javascript is used _only_ to generate the CSS - it 
-does not manipulate or modify the grid once it is rendered. Therefore you _could_ 
-write ordinary CSS to create the same result. However, there are numerous 
-calculations necessary to achieve a perfect result, so this component is a 
-major time-saver and bug-avoider!
+[React FluidGrid](https://www.npmjs.com/package/@allpro/react-fluid-grid) 
+creates a "responsive grid" layout.
+FluidGrid was inspired by 
+**[Material-UI Grid](https://material-ui.com/api/grid/)** ("**MUI Grid**").
+It emulates the syntax and props of MUI Grid as closely as possible so devs 
+familiar with that can learn FluidGrid quickly.
 
 **Motivation**
 
-FluidGrid was inspired by 
-**[Material-UI Grid](https://material-ui.com/layout/grid/)** ("**MUI Grid**")
-FluidGrid was created to handle use-cases that MUI Grid does not.
+FluidGrid was created for use-cases that MUI Grid could not handle well.
+Once I created it, I realized that it handles _most layouts_ easier, 
+even those that MUI Grid could handle as well.
 
-I created this helper for a layout with 'cards' that had a minimum width. 
-It was a highly responsive UI, with various factors affecting the grid/content 
-width at each media breakpoint. With FluidGrid, this became dead simple. Note 
-that the example below is COMPLETE - no additional CSS or media-queries are
-required, and the number and order of grid-items does not matter.
+The initial use-case was a container filled with 'cards' that required 
+minimum widths to display correctly. 
+This container was surrounded on both sides by collapsible sidebars, 
+_plus_ a lot of responsive configuration in media queries.
+Since MUI Grid can react _only_ to the full screen-width, 
+it could not handle this complex layout automatically.
+
+We tried to make it work by adding our own logic, 
+but all the variables made it very complicated
+It was also brittle because any changes to other elements could
+break the grid column=span logic.
+
+The problem with _all_ "grids" is that they rely on 
+**spanning columns of a virtual grid**. 
+This means that the column-span values must be changed in order to reflow the
+grid items. This means the developer is reponsible for figuring out the math
+required to make things work.
 
 ## How is FluidGrid different?
 
-Like most grid systems, MUI Grid item-widths are based on _spanning_ the 
-imaginary columns of a fixed grid. The number of columns spanned by each cell
-can be changed based on media-query breakpoints. The actual width of each 
-cell changes based on screen width, **as well as elements like sidebars**. 
-If these other elements are also responsive to screen-width, the sizing logic
-of the grid becomes dependent on them, making it complex and brittle.
-
 **FluidGrid does NOT rely on an imaginary grid with imaginary column.** 
-Instead it uses flexbox-wrapping to position elements. 
-The result _emulates a grid_, 
-but allows ordinary measurements for min-width, max-width, flex-basis, etc. 
-ANY valid CSS measurements can be used, like `300px`, `20em`, `25%`, etc.
+It's really a **fluid-flow layout** rather than a fluid-grid,
+but I named it FluidGrid because it _emulates_ a grid layout,
+and can be used in place of them.
+It's structure and props also deliberately emulate
+**[Material-UI Grid](https://material-ui.com/api/grid/)**.
+
+Like MUI Grid, FluidGrid used flexbox to create the layout.
+Unlike MUI Grid though, it does _not_ use media-queries.
+**FluidGrid generates 100% static CSS.** 
+It does _not_ manipulate or modify the grid once it is rendered.
+The responsiveness is controlled solely by the CSS,
+and is _not_ reliant on "screen width".
+If you expand or collapse a sidebar, the grid will _immediately_ reflow to 
+suit the resized container. 
+
+**NOTE: FluidGrid does NOT use or require Material UI.**
+
+
+## How does FluidGrid work?
+
+Configuring a FluidGrid is as simple as adding props 
+like `minWidth` or `maxWidth`.
+Any valid CSS 'length' values work, including percentages.
+FluidGrid has a rich API so it can be customized to handle almost any layout.
 
 Because FluidGrid is based on cell-content width instead of screen-width, it 
 cares only about the width of the grid container. If you expand or collapse a 
 sidebar, the grid will _immediately_ reflow to suit the resized container. 
 No media queries, special state-classes, or re-rendering is necessary.
 
+Adding item spacing and divider rules is as simple as adding props;
+for example:
+```javascript
+<FluidGrid 
+    container
+    spacing="16px" 
+>
+    <FluidGrid item minWidth="320px">
+        <CustomCardOne />
+    </FluidGrid>
+    ...
+</FluidGrid>
+```
+
+### Example
+
 ```jsx harmony
-<FluidGrid container spacing="20px">
+<FluidGrid 
+    container 
+    spacing="20px"
+    columnDivider={{ width: '2px', color: '#669' }}
+>
     <FluidGrid item minWidth="320px">
         <CustomCardOne />
     </FluidGrid>
@@ -67,7 +107,7 @@ No media queries, special state-classes, or re-rendering is necessary.
         <CustomCardThree />
     </FluidGrid>
 
-    <FluidGrid item minWidth="320px">
+    <FluidGrid item minWidth="600px">
         <CustomCardFour />
     </FluidGrid>
 </FluidGrid>
@@ -259,7 +299,166 @@ If you pull or fork the repo, you can run the demo like this:
 
 ## FluidGrid API
 
-**Coming Soon...**
+FluidGrid has 2 components, which are differentiated by setting either a 
+`container` or `item` prop.
+
+- **`container`** &nbsp; {boolean} `[true]`
+  <br>Sets component to be a 'FluidGrid Container'
+
+- **`item`** &nbsp; {boolean} `[false]`
+  <br>Sets component to be a 'FluidGrid Item'
+
+Sample of `container` and `item` use to differentiate component mode.
+
+```javascript
+<FluidGrid container spacing={24}>
+    <FluidGrid item minWidth="300px">
+        <ContentsOne />
+    </FluidGrid>
+
+    <FluidGrid item minWidth="300px">
+        <ContentsTwo />
+    </FluidGrid>
+</FluidGrid>
+```
+
+The props for _each component-mode_ are categorized for clarity. 
+**All props are optional**, but if _no props_ are specified, the generated
+output will not be useful!
+
+
+### `FluidGrid container` Props
+
+#### Special Props
+
+These props are unique to the FluidGrid container.
+
+- **`component`** &nbsp; {Component|string} `["div"]`
+  <br>The wrapper-element generated by FluidGrid. 
+
+- **`containerOverflow`** &nbsp; {string} `[""]`
+  <br>Value must be a valid CSS measurement, like "4px" or "1em"
+  <br>This increases the container size to contain visual effects that extend
+     beyond the boundary of items, like a drop-shadow or glow effect. 
+
+#### Styling Props
+
+- **`className`** &nbsp; {string} `[null]`
+  <br>Class to apply to grid-container.
+
+- **`style`** &nbsp; {object} `[null]`
+  <br>Styles that will be assigned to the grid-container.
+
+#### Flexbox Props
+
+- **`justify`** &nbsp; {string} `["flex-start"]`
+  <br>Flexbox rule for grid-container.
+
+- **`alignContent`** &nbsp; {string} `["stretch"]`
+  <br>Flexbox rule for grid-container.
+
+- **`alignItems`** &nbsp; {string} `["stretch"]`
+  <br>Flexbox rule for grid-container.
+
+#### Item-Defaults Props
+
+Some default props for grid-items can be set on the grid-container element.
+They are overridden if set on any individual grid-item.
+
+- **`columnSpacing`** &nbsp; {integer|string} `[0]`
+  <br>See [`FluidGrid container` Props](#fluidgrid-items-props) for description
+
+- **`rowSpacing`** &nbsp; {integer|string} `[0]`
+  <br>See [`FluidGrid container` Props](#fluidgrid-items-props) for description
+
+- **`spacing`** &nbsp; {integer|string} `[0]`
+  <br>See [`FluidGrid container` Props](#fluidgrid-items-props) for description
+
+- **`columnDivider`** &nbsp; {object} `[null]`
+  <br>See [`FluidGrid container` Props](#fluidgrid-items-props) for description
+
+- **`rowDivider`** &nbsp; {object} `[null]`
+  <br>See [`FluidGrid container` Props](#fluidgrid-items-props) for description
+
+- **`flexGrow`** &nbsp; {integer} `[null]`
+  <br>See [`FluidGrid container` Props](#fluidgrid-items-props) for description
+
+- **`flexShrink`** &nbsp; {integer} `[null]`
+  <br>See [`FluidGrid container` Props](#fluidgrid-items-props) for description
+
+- **`flexBasis`** &nbsp; {string} `[""]`
+  <br>See [`FluidGrid container` Props](#fluidgrid-items-props) for description
+
+- **`minWidth`** &nbsp; {string} `[""]`
+  <br>See [`FluidGrid container` Props](#fluidgrid-items-props) for description
+
+- **`maxWidth`** &nbsp; {string} `[""]`
+  <br>See [`FluidGrid container` Props](#fluidgrid-items-props) for description
+
+
+### `FluidGrid item` Props
+
+#### Special Props
+
+These props are unique to FluidGrid items.
+
+- **`component`** &nbsp; {Component|string} `["div"]`
+  <br>The wrapper-element for the grid-item generated by FluidGrid. 
+
+- **`containerOverflow`** &nbsp; {string} `[""]`
+  <br>Value must be a valid CSS measurement, like "4px" or "1em"
+  <br>This increases the container size to contain visual effects that extend
+     beyond the boundary of items, like a drop-shadow or glow effect. 
+
+- **`columnDivider`** &nbsp; {object} `[{ style: 'solid' color: '#CFCFCF' }]`
+  <br>CSS attributes for `border` to display between columns
+
+- **`rowDivider`** &nbsp; {object} `[{ style: 'solid' color: '#CFCFCF' }]`
+  <br>CSS attributes for `border` to display between rows
+
+#### Styling Props
+
+- **`className`** &nbsp; {string} `[null]`
+  <br>Class to apply to grid-item wrapper.
+
+- **`style`** &nbsp; {object} `[null]`
+  <br>Styles that will be assigned to the grid-item wrapper.
+
+#### Flexbox Logic Props
+
+**These props are used as inputs to FluidGrid logic for the final CSS.**
+They may _or may not_ translate directly to a CSS rule.
+For example, setting `minWidth="300px""` can generate CSS like 
+`flex: 1 0 300px;`, depending on what other props are set.
+
+- **`flexGrow`** &nbsp; {integer} `[null]`
+  <br>Flexbox logic prop for grid-item.
+
+- **`flexShrink`** &nbsp; {integer} `[null]`
+  <br>Flexbox logic prop for grid-item.
+
+- **`flexBasis`** &nbsp; {string} `[""]`
+  <br>Flexbox logic prop for grid-item.
+
+- **`minWidth`** &nbsp; {string} `[""]`
+  <br>Flexbox logic prop for grid-item.
+
+- **`maxWidth`** &nbsp; {string} `[""]`
+  <br>Flexbox logic prop for grid-item.
+
+#### Flexbox Props
+
+These flexbox alignment props will translate directly to the corresponding 
+CSS attribute. These can also be set a _item defaults_ on the grid-container.
+
+- **`justify`** &nbsp; {string} `["flex-start"]`
+  <br>Flexbox rule for grid-item.
+
+- **`alignContent`** &nbsp; {string} `["stretch"]`
+  <br>Flexbox rule for grid-item.
+
+- **`alignItems`** &nbsp; {string} `["stretch"]`
+  <br>Flexbox rule for grid-item.
 
 
 ## Built With

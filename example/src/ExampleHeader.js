@@ -5,10 +5,10 @@ function ExampleHeader(props) {
 	return (
 		<Fragment>
 			<Typography variant="h6">
-				{props.h6}
+				{props.title}
 			</Typography>
 
-			<Typography variant="body1" style={{ margin: '8px 0 12px' }}>
+			<Typography variant="body2" style={{ margin: '8px 0 12px' }}>
 				{props.description}
 			</Typography>
 		</Fragment>

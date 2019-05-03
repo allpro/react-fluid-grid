@@ -2,6 +2,7 @@ import React, { Fragment } from 'react'
 import Typography from '@material-ui/core/Typography'
 
 import FluidGrid from '@allpro/react-fluid-grid'
+
 import ExampleHeader from './ExampleHeader'
 
 // Verbose config options as a sample; often just `spacing` is needed
@@ -50,55 +51,55 @@ function ReactFluidGridExample() {
 			>
 				<FluidGrid item flexBasis="400px" minWidth="50%" flexGrow={99}>
 					<Typography {...contentProps}>
-						400px/50% minWidth
+						{'flexBasis="400px" minWidth="50%"'}
 					</Typography>
 				</FluidGrid>
 
 				<FluidGrid item flexBasis="400px" minWidth="50%" flexGrow={99}>
 					<Typography {...contentProps}>
-						400px/50% minWidth
+						{'flexBasis="400px" minWidth="50%"'}
 					</Typography>
 				</FluidGrid>
 
 				<FluidGrid item flexBasis="250px" minWidth="33%">
 					<Typography {...contentProps}>
-						250px/33% minWidth
+						{'flexBasis="250px" minWidth="33%"'}
 					</Typography>
 				</FluidGrid>
 
 				<FluidGrid item flexBasis="250px" minWidth="33%">
 					<Typography {...contentProps}>
-						250px/33% minWidth
+						{'flexBasis="250px" minWidth="33%"'}
 					</Typography>
 				</FluidGrid>
 
 				<FluidGrid item flexBasis="250px" minWidth="33%">
 					<Typography {...contentProps}>
-						250px/33% minWidth
+						{'flexBasis="250px" minWidth="33%"'}
 					</Typography>
 				</FluidGrid>
 
 				<FluidGrid item minWidth="150px" flexGrow={99}>
 					<Typography {...contentProps}>
-						150px minWidth
+						{'minWidth="150px"'}
 					</Typography>
 				</FluidGrid>
 
 				<FluidGrid item minWidth="150px" flexGrow={99}>
 					<Typography {...contentProps}>
-						150px minWidth
+						{'minWidth="150px"'}
 					</Typography>
 				</FluidGrid>
 
 				<FluidGrid item minWidth="150px" flexGrow={99}>
 					<Typography {...contentProps}>
-						150px minWidth
+						{'minWidth="150px"'}
 					</Typography>
 				</FluidGrid>
 
 				<FluidGrid item minWidth="150px" flexGrow={99}>
 					<Typography {...contentProps}>
-						150px minWidth
+						{'minWidth="150px"'}
 					</Typography>
 				</FluidGrid>
 			</FluidGrid>
