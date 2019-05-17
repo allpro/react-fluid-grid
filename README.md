@@ -323,7 +323,7 @@ output will not be useful!
 ### `FluidGrid container` Props
 
 <details>
-    summary><b>Special Props<b> (click to show)</summary>
+    <summary><b>Special Props<b> (click to show)</summary>
 
 <em>These props are unique to the FluidGrid container.</em>
 
@@ -337,7 +337,7 @@ output will not be useful!
 </details>
 
 <details>
-    summary><b>Styling Props<b> (click to show)</summary>
+    <summary><b>Styling Props<b> (click to show)</summary>
 
 - **`className`** &nbsp; {string} `[null]`
   <br>Class to apply to grid-container.
@@ -347,7 +347,7 @@ output will not be useful!
 </details>
 
 <details>
-    summary><b>Flexbox Props<b> (click to show)</summary>
+    <summary><b>Flexbox Props<b> (click to show)</summary>
 
 - **`justify`** &nbsp; {string} `["flex-start"]`
   <br>Flexbox rule for grid-container.
@@ -360,7 +360,7 @@ output will not be useful!
 </details>
 
 <details>
-    summary><b>Item-Defaults Props<b> (click to show)</summary>
+    <summary><b>Item-Defaults Props<b> (click to show)</summary>
 
 <em>Some default props for grid-items can be set on the grid-container element.
 They are overridden if set on any individual grid-item.</em>
