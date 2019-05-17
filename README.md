@@ -336,7 +336,6 @@ output will not be useful!
   <br>Value must be a valid CSS measurement, like "4px" or "1em"
   <br>This increases the container size to contain visual effects that extend
      beyond the boundary of items, like a drop-shadow or glow effect. 
-</details>
 
 - **`columnSpacing`** &nbsp; {integer|string} `[0]`
   <br>See [`FluidGrid container` Props](#fluidgrid-items-props) for description
@@ -346,6 +345,7 @@ output will not be useful!
 
 - **`spacing`** &nbsp; {integer|string} `[0]`
   <br>See [`FluidGrid container` Props](#fluidgrid-items-props) for description
+</details>
 
 
 <details>
