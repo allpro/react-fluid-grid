@@ -338,13 +338,14 @@ output will not be useful!
      beyond the boundary of items, like a drop-shadow or glow effect. 
 
 - **`columnSpacing`** &nbsp; {integer|string} `[0]`
-  <br>See [`FluidGrid container` Props](#fluidgrid-items-props) for description
+  <br>Horizontal spacing between items
 
 - **`rowSpacing`** &nbsp; {integer|string} `[0]`
-  <br>See [`FluidGrid container` Props](#fluidgrid-items-props) for description
+  <br>Vertical spacing between items
 
 - **`spacing`** &nbsp; {integer|string} `[0]`
-  <br>See [`FluidGrid container` Props](#fluidgrid-items-props) for description
+  <br>Horizontal <em>and</em> Vertical spacing between items.
+  	Is overridden by `columnSpacing` or `rowSpacing` props.
 </details>
 
 
