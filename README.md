@@ -16,6 +16,14 @@ FluidGrid was inspired by
 It emulates the syntax and props of MUI Grid as closely as possible so devs 
 familiar with that can learn FluidGrid quickly.
 
+**Advantages of FluidGrid**
+
+- Useful for anything async; not just 'prompt messages'.
+- _Very easy_ to add asynchronous navigation blocking.
+- Fully customizable by each component - _no limitations_.
+- Does not require modifying the history object.
+- Is compatible with React Native and server-side-rendering.
+
 **Motivation**
 
 FluidGrid was created for use-cases that MUI Grid could not handle well.
@@ -39,6 +47,7 @@ The problem with _all_ "grids" is that they rely on
 This means that the column-span values must be changed in order to reflow the
 grid items. This means the developer is responsible for figuring out the math
 required to make things work.
+
 
 ## How is FluidGrid different?
 
@@ -170,7 +179,7 @@ The sample below is from the **"Mixed Width Columns"** demo available at:
 
 <details>
 	<summary>
-		**Mixed-Width Sample Code** (click to show)
+		<b>Mixed-Width Sample Code</b> (click to show)<br />
 	</summary>
 
 ```jsx harmony
@@ -255,18 +264,10 @@ const contentProps = {
 ```
 </details>
 
-**Advantages of FluidGrid**
 
-- Useful for anything async; not just 'prompt messages'.
-- _Very easy_ to add asynchronous navigation blocking.
-- Fully customizable by each component - _no limitations_.
-- Does not require modifying the history object.
-- Is compatible with React Native and server-side-rendering.
+## Live Examples
 
-
-## Live Example
-
-Try the demo at: https://allpro.github.io/react-fluid-grid
+Try the demos at: https://allpro.github.io/react-fluid-grid
 
 Play with the demo code at:
 https://codesandbox.io/s/github/allpro/react-fluid-grid/tree/master/example
