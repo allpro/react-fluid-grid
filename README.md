@@ -165,10 +165,11 @@ the same as the props passed in!
 
 ## Example of a Responsive FluidGrid
 
-<details>
-<summary>This code is from the **"Mixed Width Columns"** demo available at:
+The sample below is from the **"Mixed Width Columns"** demo available at:
 [allpro.github.io/react-fluid-grid](https://allpro.github.io/react-fluid-grid)
-</summary>
+
+<details>
+<summary>Mixed With Sample Code</summary>
 
 ```jsx harmony
 import React from 'react'
