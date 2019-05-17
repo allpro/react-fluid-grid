@@ -168,9 +168,9 @@ the same as the props passed in!
 <details>
 <summary>This code is from the **"Mixed Width Columns"** demo available at:
 [allpro.github.io/react-fluid-grid](https://allpro.github.io/react-fluid-grid)
-</summmary>
+</summary>
 
-<pre><code>
+```jsx harmony
 import React from 'react'
 import Typography from '@material-ui/core/Typography'
 
@@ -193,7 +193,7 @@ const gridConfig = {
 	columnDivider: {
 		width: 3,
 		color: 'blue'
-	}
+	},
 }
 
 const itemProps = {
@@ -249,7 +249,7 @@ const contentProps = {
         150px minWidth
     </FluidGrid>
 </FluidGrid>
-</code></pre>
+```
 </details>
 
 **Advantages of FluidGrid**
