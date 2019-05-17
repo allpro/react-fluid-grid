@@ -166,14 +166,11 @@ the same as the props passed in!
 ## Example of a Responsive FluidGrid
 
 <details>
-<summary>
-<p>This code is from the **"Mixed Width Columns"** demo available at:
+<summary>This code is from the **"Mixed Width Columns"** demo available at:
 [allpro.github.io/react-fluid-grid](https://allpro.github.io/react-fluid-grid)
-</p>
 </summmary>
 
-<p>
-```jsx harmony
+<pre><code>
 import React from 'react'
 import Typography from '@material-ui/core/Typography'
 
@@ -196,7 +193,7 @@ const gridConfig = {
 	columnDivider: {
 		width: 3,
 		color: 'blue'
-	},
+	}
 }
 
 const itemProps = {
@@ -215,7 +212,6 @@ const contentProps = {
 	}
 }
 
-;
 <FluidGrid container {...gridConfig}>
     <FluidGrid {...itemProps} flexBasis="400px" minWidth="50%" flexGrow="99">
         400px/50% minWidth
@@ -253,8 +249,7 @@ const contentProps = {
         150px minWidth
     </FluidGrid>
 </FluidGrid>
-```
-</p>
+</code></pre>
 </details>
 
 **Advantages of FluidGrid**
