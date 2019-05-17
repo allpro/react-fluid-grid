@@ -323,9 +323,7 @@ output will not be useful!
 ### `FluidGrid container` Props
 
 <details>
-	<summary><h4>Special Props (click to show)
-		<br />&nbsp;</h4
-	</summary>
+<summary>#### Special Props (click to show)<br>&nbsp;</summary>
 
 These props are unique to the FluidGrid container.
 
