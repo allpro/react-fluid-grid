@@ -169,7 +169,9 @@ The sample below is from the **"Mixed Width Columns"** demo available at:
 [allpro.github.io/react-fluid-grid](https://allpro.github.io/react-fluid-grid)
 
 <details>
-<summary>Mixed With Sample Code</summary>
+	<summary>
+		**Mixed-Width Sample Code** (click to show)
+	</summary>
 
 ```jsx harmony
 import React from 'react'
