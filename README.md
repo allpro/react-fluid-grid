@@ -266,7 +266,7 @@ const contentProps = {
 </details>
 
 
-## Live Examples
+## Live Demos
 
 Try the demos at: https://allpro.github.io/react-fluid-grid
 
@@ -322,7 +322,10 @@ output will not be useful!
 
 ### `FluidGrid container` Props
 
-#### Special Props
+<details>
+	<summary><h4>Special Props (click to show)
+		<br />&nbsp;</h4
+	</summary>
 
 These props are unique to the FluidGrid container.
 
@@ -333,6 +336,7 @@ These props are unique to the FluidGrid container.
   <br>Value must be a valid CSS measurement, like "4px" or "1em"
   <br>This increases the container size to contain visual effects that extend
      beyond the boundary of items, like a drop-shadow or glow effect. 
+</details>
 
 #### Styling Props
 
