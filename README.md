@@ -429,8 +429,6 @@ element. They are overridden if set on any individual grid-item.</em></p>
 <details>
     <summary><b>Styling Props</b> (expand)</summary>
 
-<p> &nbsp; &nbsp; <em></em></p>
-
 - **`className`** &nbsp; {string} `[null]`
   <br>Class to apply to grid-item wrapper.
 
@@ -442,7 +440,7 @@ element. They are overridden if set on any individual grid-item.</em></p>
 <details>
     <summary><b>Flexbox Logic Props</b> (expand)</summary>
 
-<p><b>These props are used as inputs to FluidGrid logic for the final CSS.</b>
+<p> &nbsp; &nbsp; <b>These props are used as inputs to FluidGrid logic for the final CSS.</b>
 	They may <em>or may not</em> translate directly to a CSS rule.
 	For example, setting <code>minWidth="300px"</code> can generate CSS like 
 	<code>flex: 1 0 300px;</code>, depending on what other props are set.
@@ -468,7 +466,7 @@ element. They are overridden if set on any individual grid-item.</em></p>
 <details>
     <summary><b>Flexbox Props</b> (expand)</summary>
 
-<p><em>These flexbox alignment props will translate directly to the corresponding 
+<p> &nbsp; &nbsp; <em>These flexbox alignment props will translate directly to the corresponding 
 CSS attribute. These can also be set a _item defaults_ on the grid-container.</em></p>
 
 - **`justify`** &nbsp; {string} `["flex-start"]`
