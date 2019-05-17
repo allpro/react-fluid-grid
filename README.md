@@ -179,8 +179,8 @@ The sample below is from the **"Mixed Width Columns"** demo available at:
 
 <details>
 	<summary>
-		<p><b>Mixed-Width Sample Code</b> (click to show)
-		<br />&nbsp;</p>
+		<b>Mixed-Width Sample Code</b> (click to show)
+		<br />&nbsp;
 	</summary>
 
 ```jsx harmony
