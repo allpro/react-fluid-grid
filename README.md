@@ -339,13 +339,16 @@ output will not be useful!
 
 - **`columnSpacing`** &nbsp; {integer|string} `[0]`
   <br>Horizontal spacing between items
+  <br>Value must be a valid CSS measurement, like "4px" or "1em"
 
 - **`rowSpacing`** &nbsp; {integer|string} `[0]`
   <br>Vertical spacing between items
+  <br>Value must be a valid CSS measurement, like "4px" or "1em"
 
 - **`spacing`** &nbsp; {integer|string} `[0]`
   <br>Horizontal <em>and</em> Vertical spacing between items.
-  	Is overridden by `columnSpacing` or `rowSpacing` props.
+  <br>Value must be a valid CSS measurement, like "4px" or "1em"
+  <br>Is overridden by `columnSpacing` or `rowSpacing` props.
 </details>
 
 
