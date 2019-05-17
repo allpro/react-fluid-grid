@@ -161,12 +161,13 @@ to the grid configuration. The component will calculate and generate the final
 CSS to achieve the 'goal' specified. This means the generated CSS may not be 
 the same as the props passed in!
 
-**See the FluidGrid API section below.**
+**See the [FluidGrid API](#fluidgrid-api) section below.**
 
 ## Example of a Responsive FluidGrid
 
-See Example.js. You can copy this file into your project, or run the demo 
-server (`npm start`) to access it at (http://localhost:3000/)[http://localhost:3000/]
+<details>
+<summary>This code is from the **"Mixed Width Columns"** demo available at:
+[allpro.github.io/react-fluid-grid](https://allpro.github.io/react-fluid-grid)</summmary>
 
 ```jsx harmony
 import React from 'react'
@@ -249,6 +250,7 @@ const contentProps = {
     </FluidGrid>
 </FluidGrid>
 ```
+</details>
 
 **Advantages of FluidGrid**
 
