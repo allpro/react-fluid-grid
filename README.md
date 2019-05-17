@@ -338,6 +338,15 @@ output will not be useful!
      beyond the boundary of items, like a drop-shadow or glow effect. 
 </details>
 
+- **`columnSpacing`** &nbsp; {integer|string} `[0]`
+  <br>See [`FluidGrid container` Props](#fluidgrid-items-props) for description
+
+- **`rowSpacing`** &nbsp; {integer|string} `[0]`
+  <br>See [`FluidGrid container` Props](#fluidgrid-items-props) for description
+
+- **`spacing`** &nbsp; {integer|string} `[0]`
+  <br>See [`FluidGrid container` Props](#fluidgrid-items-props) for description
+
 
 <details>
     <summary><b>Styling Props</b> (expand)</summary>
@@ -370,15 +379,6 @@ output will not be useful!
 <p> &nbsp; &nbsp; <em>Some default props for grid-items can be set on the 
 grid-container 
 element. They are overridden if set on any individual grid-item.</em></p>
-
-- **`columnSpacing`** &nbsp; {integer|string} `[0]`
-  <br>See [`FluidGrid container` Props](#fluidgrid-items-props) for description
-
-- **`rowSpacing`** &nbsp; {integer|string} `[0]`
-  <br>See [`FluidGrid container` Props](#fluidgrid-items-props) for description
-
-- **`spacing`** &nbsp; {integer|string} `[0]`
-  <br>See [`FluidGrid container` Props](#fluidgrid-items-props) for description
 
 - **`columnDivider`** &nbsp; {object} `[null]`
   <br>See [`FluidGrid container` Props](#fluidgrid-items-props) for description
