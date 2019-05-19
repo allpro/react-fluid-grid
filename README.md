@@ -16,14 +16,6 @@ FluidGrid was inspired by
 It emulates the syntax and props of MUI Grid as closely as possible so devs 
 familiar with that can learn FluidGrid quickly.
 
-**Advantages of FluidGrid**
-
-- Useful for anything async; not just 'prompt messages'.
-- _Very easy_ to add asynchronous navigation blocking.
-- Fully customizable by each component - _no limitations_.
-- Does not require modifying the history object.
-- Is compatible with React Native and server-side-rendering.
-
 **Motivation**
 
 FluidGrid was created for use-cases that MUI Grid could not handle well.
