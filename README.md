@@ -349,17 +349,6 @@ output will not be useful!
 
 
 <details>
-    <summary><b>Styling Props</b> (expand)</summary>
-
-- **`className`** &nbsp; {string} `[null]`
-  <br>Class to apply to grid-container.
-
-- **`style`** &nbsp; {object} `[null]`
-  <br>Styles that will be assigned to the grid-container.
-</details>
-
-
-<details>
     <summary><b>Flexbox Props</b> (expand)</summary>
 
 - **`justify`** &nbsp; {string} `["flex-start"]`
@@ -381,25 +370,36 @@ grid-container
 element. They are overridden if set on any individual grid-item.</em></p>
 
 - **`columnDivider`** &nbsp; {object} `[null]`
-  <br>See [`FluidGrid container` Props](#fluidgrid-items-props) for description
+  <br>See [`FluidGrid item` Props](#fluidgrid-items-props) for description
 
 - **`rowDivider`** &nbsp; {object} `[null]`
-  <br>See [`FluidGrid container` Props](#fluidgrid-items-props) for description
+  <br>See [`FluidGrid item` Props](#fluidgrid-items-props) for description
 
 - **`flexGrow`** &nbsp; {integer} `[null]`
-  <br>See [`FluidGrid container` Props](#fluidgrid-items-props) for description
+  <br>See [`FluidGrid item` Props](#fluidgrid-items-props) for description
 
 - **`flexShrink`** &nbsp; {integer} `[null]`
-  <br>See [`FluidGrid container` Props](#fluidgrid-items-props) for description
+  <br>See [`FluidGrid item` Props](#fluidgrid-items-props) for description
 
 - **`flexBasis`** &nbsp; {string} `[""]`
-  <br>See [`FluidGrid container` Props](#fluidgrid-items-props) for description
+  <br>See [`FluidGrid item` Props](#fluidgrid-items-props) for description
 
 - **`minWidth`** &nbsp; {string} `[""]`
-  <br>See [`FluidGrid container` Props](#fluidgrid-items-props) for description
+  <br>See [`FluidGrid item` Props](#fluidgrid-items-props) for description
 
 - **`maxWidth`** &nbsp; {string} `[""]`
-  <br>See [`FluidGrid container` Props](#fluidgrid-items-props) for description
+  <br>See [`FluidGrid item` Props](#fluidgrid-items-props) for description
+</details>
+
+
+<details>
+    <summary><b>Styling Props</b> (expand)</summary>
+
+- **`className`** &nbsp; {string} `[null]`
+  <br>Class to apply to grid-container.
+
+- **`style`** &nbsp; {object} `[null]`
+  <br>Styles that will be assigned to the grid-container.
 </details>
 
 
@@ -418,17 +418,6 @@ element. They are overridden if set on any individual grid-item.</em></p>
 
 - **`rowDivider`** &nbsp; {object} `[{ style: 'solid' color: '#CFCFCF' }]`
   <br>CSS attributes for `border` to display between rows
-</details>
-
-
-<details>
-    <summary><b>Styling Props</b> (expand)</summary>
-
-- **`className`** &nbsp; {string} `[null]`
-  <br>Class to apply to grid-item wrapper.
-
-- **`style`** &nbsp; {object} `[null]`
-  <br>Styles that will be assigned to the grid-item wrapper.
 </details>
 
 
@@ -474,6 +463,17 @@ element. They are overridden if set on any individual grid-item.</em></p>
 
 - **`alignItems`** &nbsp; {string} `["stretch"]`
   <br>Flexbox rule for grid-item.
+</details>
+
+
+<details>
+    <summary><b>Styling Props</b> (expand)</summary>
+
+- **`className`** &nbsp; {string} `[null]`
+  <br>Class to apply to grid-item wrapper.
+
+- **`style`** &nbsp; {object} `[null]`
+  <br>Styles that will be assigned to the grid-item wrapper.
 </details>
 
 
