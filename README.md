@@ -168,92 +168,96 @@ the same as the props passed in!
 
 The sample below is from the **"Mixed Width Columns"** demo available at:
 [allpro.github.io/react-fluid-grid](https://allpro.github.io/react-fluid-grid)
+<br>(Cosmetic props and styles removed for brevity.)
 
 <details>
-	<summary>
-		<b>Mixed-Width Sample Code</b> (click to show)
-		<br />&nbsp;
-	</summary>
+  <summary>
+    <b>Mixed-Width Sample Code</b> (click to show)
+    <br />&nbsp;
+  </summary>
 
 ```jsx harmony
-import React from 'react'
+import React, { Fragment } from 'react'
 import Typography from '@material-ui/core/Typography'
+import FluidGrid from '@allpro/react-fluid-grid'
 
 // Verbose config options as a sample; often just `spacing` is needed
 const gridConfig = {
-	justify: 'flex-start',
-	alignContent: 'stretch',
-	alignItems: 'stretch',
+  justify: 'flex-start',
+  alignContent: 'stretch',
+  alignItems: 'stretch',
 
-	// spacing: 0,
-
-	rowSpacing: 24,
-	rowDivider: {
-		width: 1,
-		color: 'blue',
-		style: 'dotted'
-	},
-
-	columnSpacing: 26,
-	columnDivider: {
-		width: 3,
-		color: 'blue'
-	},
+  columnSpacing: 16,
+  rowSpacing: 32,
+  rowDivider: {
+    width: 1,
+    color: 'blue',
+  },
 }
 
-const itemProps = {
-    item: true,
-    component: Typography,
-    variant:"subheading",
+function ReactFluidGridExample() {
+  return (
+    <FluidGrid container {...gridConfig}>
+
+      <FluidGrid item flexBasis="400px" minWidth="50%" flexGrow={99}>
+        <Typography>
+          {'flexBasis="400px" minWidth="50%"'}
+        </Typography>
+      </FluidGrid>
+
+      <FluidGrid item flexBasis="400px" minWidth="50%" flexGrow={99}>
+        <Typography>
+          {'flexBasis="400px" minWidth="50%"'}
+        </Typography>
+      </FluidGrid>
+
+      <FluidGrid item flexBasis="250px" minWidth="33%">
+        <Typography>
+          {'flexBasis="250px" minWidth="33%"'}
+        </Typography>
+      </FluidGrid>
+
+      <FluidGrid item flexBasis="250px" minWidth="33%">
+        <Typography>
+          {'flexBasis="250px" minWidth="33%"'}
+        </Typography>
+      </FluidGrid>
+
+      <FluidGrid item flexBasis="250px" minWidth="33%">
+        <Typography>
+          {'flexBasis="250px" minWidth="33%"'}
+        </Typography>
+      </FluidGrid>
+
+      <FluidGrid item minWidth="150px" flexGrow={99}>
+        <Typography>
+          {'minWidth="150px"'}
+        </Typography>
+      </FluidGrid>
+
+      <FluidGrid item minWidth="150px" flexGrow={99}>
+        <Typography>
+          {'minWidth="150px"'}
+        </Typography>
+      </FluidGrid>
+
+      <FluidGrid item minWidth="150px" flexGrow={99}>
+        <Typography>
+          {'minWidth="150px"'}
+        </Typography>
+      </FluidGrid>
+
+      <FluidGrid item minWidth="150px" flexGrow={99}>
+        <Typography>
+          {'minWidth="150px"'}
+        </Typography>
+      </FluidGrid>
+
+    </FluidGrid>
+  )
 }
 
-const contentProps = {
-	variant: 'subheading',
-	style: {
-        flex: 'auto', // so inner-element will stretch vertically
-		border: '1px solid #CCC', 
-        background: '#F9F9F9', 
-        padding: '20px'
-	}
-}
-
-<FluidGrid container {...gridConfig}>
-    <FluidGrid {...itemProps} flexBasis="400px" minWidth="50%" flexGrow="99">
-        400px/50% minWidth
-    </FluidGrid>
-
-    <FluidGrid {...itemProps} flexBasis="400px" minWidth="50%" flexGrow="99">
-        400px/50% minWidth
-    </FluidGrid>
-
-    <FluidGrid {...itemProps} flexBasis="250px" minWidth="33%">
-        250px/33% minWidth
-    </FluidGrid>
-
-    <FluidGrid {...itemProps} flexBasis="250px" minWidth="33%">
-        250px/33% minWidth
-    </FluidGrid>
-
-    <FluidGrid {...itemProps} flexBasis="250px" minWidth="33%">
-        250px/33% minWidth
-    </FluidGrid>
-
-    <FluidGrid {...itemProps} minWidth="150px" flexGrow="99">
-        150px minWidth
-    </FluidGrid>
-
-    <FluidGrid {...itemProps} minWidth="150px" flexGrow="99">
-        150px minWidth
-    </FluidGrid>
-
-    <FluidGrid {...itemProps} minWidth="150px" flexGrow="99">
-        150px minWidth
-    </FluidGrid>
-
-    <FluidGrid {...itemProps} minWidth="150px" flexGrow="99">
-        150px minWidth
-    </FluidGrid>
-</FluidGrid>
+export default ReactFluidGridExample
 ```
 </details>
 
@@ -432,9 +436,9 @@ element. They are overridden if set on any individual grid-item.</em></p>
     <summary><b>Flexbox Logic Props</b> (expand)</summary>
 
 <p> &nbsp; &nbsp; <b>These props are used as inputs to FluidGrid logic for the final CSS.</b>
-	They may <em>or may not</em> translate directly to a CSS rule.
-	For example, setting <code>minWidth="300px"</code> can generate CSS like 
-	<code>flex: 1 0 300px;</code>, depending on what other props are set.
+  They may <em>or may not</em> translate directly to a CSS rule.
+  For example, setting <code>minWidth="300px"</code> can generate CSS like 
+  <code>flex: 1 0 300px;</code>, depending on what other props are set.
 </p>
 
 - **`flexGrow`** &nbsp; {integer} `[null]`
@@ -458,8 +462,8 @@ element. They are overridden if set on any individual grid-item.</em></p>
     <summary><b>Flexbox Props</b> (expand)</summary>
 
 <p> &nbsp; &nbsp; <em>These flexbox alignment props will translate directly 
-	to the corresponding CSS attribute. These can also be set 
-	as <b>item defaults</b> on the grid-container.</em>
+  to the corresponding CSS attribute. These can also be set 
+  as <b>item defaults</b> on the grid-container.</em>
 </p>
 
 - **`justify`** &nbsp; {string} `["flex-start"]`
