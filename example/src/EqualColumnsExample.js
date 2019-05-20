@@ -34,20 +34,12 @@ const NUM_DEMO_ITEMS = 9
 const itemProps = {
 	item: true,
 	flexBasis: MIN_ITEM_WIDTH,
-	minWidth: MIN_ITEM_PERCENT,
-}
-
-// EXTRA grid-items - maintainS width of items inside an INCOMPLETE last row
-const itemPlaceholderProps = {
-	...itemProps,
-	style: {
-		padding: 0
-	},
+	minWidth: MIN_ITEM_PERCENT
 }
 
 const cosmeticContainerStyle = {
 	border: '1px dashed #fdd',
-	marginTop: '1rem',
+	marginTop: '1rem'
 }
 
 // Typography content inside each grid-item - COSMETIC ONLY
@@ -59,8 +51,8 @@ const cosmeticContentProps = {
 		boxShadow: '4px 4px 4px 0px rgba(153,153,153,1)',
 		border: '1px solid #CCC',
 		background: '#F9F9F9',
-		padding: '20px',
-	},
+		padding: '20px'
+	}
 }
 
 
@@ -89,7 +81,7 @@ function ReactFluidGridExample() {
 				))}
 
 				{createArray(MAX_COLUMNS - 1).map((x, idx) => (
-					<FluidGrid {...itemPlaceholderProps} key={`ph${idx}`} />
+					<FluidGrid {...itemProps} placeholder={true} key={`ph${idx}`} />
 				))}
 			</FluidGrid>
 		</Fragment>

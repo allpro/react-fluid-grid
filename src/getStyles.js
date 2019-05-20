@@ -18,12 +18,14 @@ const getStyles = props => {
 	const {
 		alignContent,
 		alignItems,
-		justify,
+		justify, // alias for justifyContent
+		justifyContent,
 		flexGrow,
 		flexShrink,
 		flexBasis,
 		maxWidth,
 		containerOverflow,
+		placeholder
 	} = props
 	let { minWidth } = props
 
@@ -60,7 +62,7 @@ const getStyles = props => {
 		position: 'relative',
 		display: 'flex',
 		flexFlow: 'row wrap',
-		justifyContent: justify,
+		justifyContent: justifyContent || justify,
 		alignContent,
 		alignItems
 	}
@@ -110,25 +112,35 @@ const getStyles = props => {
 	// Add row & column spacing to grid-items and the container
 	if (columnSpacing > 0) {
 		const halfSpacing = columnSpacing / 2
-		Object.assign(item, {
-			paddingLeft: `${halfSpacing}px`,
-			paddingRight: `${halfSpacing}px`
-		})
+
 		Object.assign(innerContainer, {
 			marginLeft: `-${halfSpacing + columnDivider.width}px`,
 			marginRight: `-${halfSpacing}px`
 		})
+
+		// If props.placeholder==true, DO NOT add padding so item will 'collapse'
+		if (!placeholder) {
+			Object.assign(item, {
+				paddingLeft: `${halfSpacing}px`,
+				paddingRight: `${halfSpacing}px`
+			})
+		}
 	}
 	if (rowSpacing > 0) {
 		const halfSpacing = rowSpacing / 2
-		Object.assign(item, {
-			paddingTop: `${halfSpacing}px`,
-			paddingBottom: `${halfSpacing}px`
-		})
+
 		Object.assign(innerContainer, {
 			marginTop: `-${halfSpacing + rowDivider.width}px`,
 			marginBottom: `-${halfSpacing}px`
 		})
+
+		// If props.placeholder==true, DO NOT add padding so item will 'collapse'
+		if (!placeholder) {
+			Object.assign(item, {
+				paddingTop: `${halfSpacing}px`,
+				paddingBottom: `${halfSpacing}px`
+			})
+		}
 	}
 
 	return { innerContainer, outerContainer, item }

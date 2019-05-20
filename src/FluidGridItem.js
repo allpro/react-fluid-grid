@@ -6,6 +6,7 @@ import omit from 'lodash/omit'
 import getStyles from './getStyles'
 
 const FluidGridItem = (props, context) => {
+	// Do not pass along props that are part of FluidGrid
 	const itemProps = omit(props, [
 		'item',
 		'component',
@@ -16,6 +17,7 @@ const FluidGridItem = (props, context) => {
 		'flexBasis',
 		'minWidth',
 		'maxWidth',
+		'placeholder',
 		'style'
 	])
 	const Component = props.component
@@ -40,25 +42,17 @@ FluidGridItem.contextTypes = {
 FluidGridItem.propTypes = {
 	children: node,
 	className: string,
+	style: object,
 	component: oneOfType([func, string]),
 	item: bool,
-
-	// Dividers set per-item affect dividers on the left & top of the item
-	columnDivider: shape({
-		color: string,
-		width: number,
-		style: string
-	}),
-	rowDivider: shape({
-		color: string,
-		width: number,
-		style: string
-	}),
+	// Flexbox-logic props
 	flexGrow: number,
 	flexShrink: number,
 	flexBasis: string,
 	maxWidth: string,
-	minWidth: string
+	minWidth: string,
+	// Prop for 'dummy items'; prevents padding on item-wrapper
+	placeholder: bool
 }
 
 FluidGridItem.defaultProps = {

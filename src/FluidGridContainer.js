@@ -7,17 +7,19 @@ import getStyles from './getStyles'
 
 class FluidGridContainer extends React.Component {
 	/**
-	 * Pass down all options that affect a FluidGridItems - these are defaults.
-	 * Each item can override _most_ of these options to customize themselves.
+	 * Pass down all options that affect a FluidGridItem - some are defaults.
+	 * Each item can override _default options_ to customize themselves.
 	 * @returns {Object}
 	 */
 	getChildContext() {
 		const {
+			// Container-specific options
 			spacing,
 			columnSpacing,
 			rowSpacing,
 			columnDivider,
 			rowDivider,
+			// Item-default options
 			flexGrow,
 			flexShrink,
 			flexBasis,
@@ -27,11 +29,13 @@ class FluidGridContainer extends React.Component {
 
 		return {
 			config: {
+				// Container-specific options
 				spacing,
 				columnSpacing,
 				rowSpacing,
 				columnDivider,
 				rowDivider,
+				// Item-default options
 				flexGrow,
 				flexShrink,
 				flexBasis,
@@ -43,11 +47,13 @@ class FluidGridContainer extends React.Component {
 
 	render() {
 		const { props } = this
+		// Do not pass along props that are part of FluidGrid
 		const containerProps = omit(props, [
 			'container',
 			'component',
 			'alignContent',
 			'alignItems',
+			'justifyContent',
 			'justify',
 			'spacing',
 			'columnSpacing',
@@ -60,6 +66,7 @@ class FluidGridContainer extends React.Component {
 			'minWidth',
 			'maxWidth',
 			'containerOverflow',
+			'placeholder',
 			'style'
 		])
 		const Component = props.component
@@ -94,6 +101,27 @@ FluidGridContainer.childContextTypes = {
 }
 
 FluidGridContainer.propTypes = {
+	children: node,
+	className: string,
+	style: object,
+	component: oneOfType([func, string]),
+	container: bool,
+
+	// Container-specific spacing & divider props
+	columnDivider: shape({
+		color: string,
+		width: number,
+		style: string
+	}),
+	rowDivider: shape({
+		color: string,
+		width: number,
+		style: string
+	}),
+	spacing: number,
+	columnSpacing: number,
+	rowSpacing: number,
+	// Container-specific flexbox props
 	alignContent: oneOf([
 		'stretch',
 		'center',
@@ -109,23 +137,23 @@ FluidGridContainer.propTypes = {
 		'stretch',
 		'baseline'
 	]),
-	columnDivider: shape({
-		color: string,
-		width: number,
-		style: string
-	}),
-	rowDivider: shape({
-		color: string,
-		width: number,
-		style: string
-	}),
-	children: node,
-	component: oneOfType([func, string]),
-	className: string,
-	container: bool,
-	spacing: number,
-	columnSpacing: number,
-	rowSpacing: number,
+	justifyContent: oneOf([
+		'center',
+		'flex-start',
+		'flex-end',
+		'space-between',
+		'space-around',
+		'space-evenly'
+	]),
+	justify: oneOf([
+		'center',
+		'flex-start',
+		'flex-end',
+		'space-between',
+		'space-around',
+		'space-evenly'
+	]),
+	// Default props for items
 	flexGrow: number,
 	flexShrink: number,
 	baseWidth: string,
@@ -138,7 +166,7 @@ FluidGridContainer.defaultProps = {
 	container: false,
 
 	// Container-only props
-	justify: 'flex-start',
+	justify: 'flex-start', // alias for justifyContent
 	alignContent: 'stretch',
 	alignItems: 'stretch',
 

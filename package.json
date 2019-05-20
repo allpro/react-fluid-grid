@@ -1,6 +1,6 @@
 {
   "name": "@allpro/react-fluid-grid",
-  "version": "0.5.7",
+  "version": "0.5.8",
   "description": "React component for creating grid-like responsive flow",
   "repository": {
     "type": "git",

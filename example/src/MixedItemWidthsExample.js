@@ -17,8 +17,8 @@ const gridConfig = {
 	rowSpacing: 32,
 	rowDivider: {
 		width: 1,
-		color: 'blue',
-	},
+		color: 'blue'
+	}
 }
 
 const contentProps = {
@@ -27,13 +27,13 @@ const contentProps = {
 		flex: 'auto', // so inner-element will stretch vertically
 		border: '1px solid #CCC',
 		background: '#F9F9F9',
-		padding: '20px',
-	},
+		padding: '20px'
+	}
 }
 
 const cosmeticContainerStyle = {
 	border: '1px dashed #fdd',
-	marginTop: '1rem',
+	marginTop: '1rem'
 }
 
 function ReactFluidGridExample() {
